@@ -3,7 +3,7 @@ package com.bridgelabz.employeewage;
 import java.util.Random;
 
 class Employee_Wage_Program {
-
+//Class level variable
 	static final int IS_Full_TIME = 0;
 	static final int IS_PART_TIME = 1;
 	final static int WAGE_PER_HOUR = 20;
@@ -20,6 +20,7 @@ class Employee_Wage_Program {
 		Employee_Wage_Program.totalwage();
 	}
 
+	// class level methods
 	private static void totalwage() {
 		// checking the total wage for the 20 days
 		for (int i = 1; i <= MAX_WORKING_DAYS; i++) {
