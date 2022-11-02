@@ -3,7 +3,7 @@ package com.bridgelabz.employeewage;
 import java.util.Random;
 
 class Employee_Wage_Program {
-//Class level variable
+//Class level Variables
 	static final int IS_Full_TIME = 0;
 	static final int IS_PART_TIME = 1;
 	final static int WAGE_PER_HOUR = 20;
