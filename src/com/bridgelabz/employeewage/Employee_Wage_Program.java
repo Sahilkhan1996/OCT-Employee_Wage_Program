@@ -25,7 +25,7 @@ class Employee_Wage_Program {
 	}
 
 	// class methods in EmpWage
-	void totalwage() {
+	public void totalwage() {
 		// checking the total wage for the 20 days
 		for (int i = 1; i <= MAX_WORKING_DAYS; i++) {
 			if (total_Working_Days < MAX_WORKING_DAYS && total_Working_Hours < MAX_WORKING_HOURS) {
@@ -54,6 +54,7 @@ class Employee_Wage_Program {
 		// with the switch case
 		switch (isPresent) {
 		case IS_Full_TIME: {
+			//Adding condition to avoid going the max hours more than limit
 			if (total_Working_Hours + 8 <= MAX_WORKING_HOURS) {
 				//System.out.println("Employee is present Full time");
 				empHrs = 8;
@@ -64,6 +65,7 @@ class Employee_Wage_Program {
 		}
 			break;
 		case IS_PART_TIME: {
+			//Adding condition to avoid going the max hours more than limit
 			if (total_Working_Hours + 4 <= MAX_WORKING_HOURS) {
 				//System.out.println("Employee is present Part time");
 				empHrs = 4;
@@ -77,4 +79,10 @@ class Employee_Wage_Program {
 			empHrs = 0;
 		}
 	}
+
+	@Override
+	public String toString() {
+		return "Employee_Wage_Program's Company Name is: " + companyName + " and it's wage for the month is: " + wageForMonth;
+	}
+	
 }
