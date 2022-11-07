@@ -1,6 +1,7 @@
 package com.bridgelabz.employeewage;
 
 import java.util.Random;
+import java.util.Scanner;
 
 class Employee_Wage_Program {
 //class variables in EmpWage
@@ -15,13 +16,24 @@ class Employee_Wage_Program {
 	int wageForMonth;// company dependent
 	int total_Working_Hours;// company dependent
 	int total_Working_Days;// company dependent
+	Scanner sc = new Scanner(System.in);
 
-	public Employee_Wage_Program(String companyName, int wAGE_PER_HOUR, int mAX_WORKING_DAYS, int mAX_WORKING_HOURS) {
-		super();
+	public Employee_Wage_Program() {
+		System.out.println("Enter Company Name:");
+		String companyName = sc.nextLine();
 		this.companyName = companyName;
-		WAGE_PER_HOUR = wAGE_PER_HOUR;
-		MAX_WORKING_DAYS = mAX_WORKING_DAYS;
-		MAX_WORKING_HOURS = mAX_WORKING_HOURS;
+		
+		System.out.println("Enter Wage per Hour:");
+		int wagePerHour = sc.nextInt();
+		this.WAGE_PER_HOUR =wagePerHour;
+		
+		System.out.println("Enter Total No. of Working Days in a Month:");
+		int MAX_WORKING_DAYS = sc.nextInt();
+		this.MAX_WORKING_DAYS = MAX_WORKING_DAYS;
+		
+		System.out.println("Enter Total No. of Working Hours in a Month:");
+		int MAX_WORKING_HOURS = sc.nextInt();
+		this.MAX_WORKING_HOURS = MAX_WORKING_HOURS;
 	}
 
 	// class methods in EmpWage
@@ -33,30 +45,32 @@ class Employee_Wage_Program {
 				empCheck();
 				// calculating daily wage
 				int dailyWage = WAGE_PER_HOUR * empHrs;
-				//System.out.println("Daily Employee wage: " + dailyWage);
+				// System.out.println("Daily Employee wage: " + dailyWage);
 				// calculating employee working days
 				total_Working_Days++;
-				//System.out.println("Total working hours: " + total_Working_Hours + " For the days is: " + total_Working_Days);
+				// System.out.println("Total working hours: " + total_Working_Hours + " For the
+				// days is: " + total_Working_Days);
 				wageForMonth = wageForMonth + dailyWage;
 
-				//System.out.println();
+				// System.out.println();
 			}
 		}
-		System.out.println("The company name "+companyName+" has Total Wage for the month is: " + wageForMonth + " Total working days are: "
-				+ total_Working_Days + " Total working hours are: " + total_Working_Hours);
+		System.out.println("The company name " + companyName + " has Total Wage for the month is: " + wageForMonth
+				+ " Total working days are: " + total_Working_Days + " Total working hours are: "
+				+ total_Working_Hours);
 	}
 
 	void empCheck() {
 		Random random = new Random(); // generating random number
 		int isPresent = random.nextInt(3);
-		//System.out.println(isPresent);
+		// System.out.println(isPresent);
 		// Checking if the employee is present full time/part time/absent
 		// with the switch case
 		switch (isPresent) {
 		case IS_Full_TIME: {
-			//Adding condition to avoid going the max hours more than limit
+			// Adding condition to avoid going the max hours more than limit
 			if (total_Working_Hours + 8 <= MAX_WORKING_HOURS) {
-				//System.out.println("Employee is present Full time");
+				// System.out.println("Employee is present Full time");
 				empHrs = 8;
 				// calculating total working hours
 				total_Working_Hours = total_Working_Hours + empHrs;
@@ -65,9 +79,9 @@ class Employee_Wage_Program {
 		}
 			break;
 		case IS_PART_TIME: {
-			//Adding condition to avoid going the max hours more than limit
+			// Adding condition to avoid going the max hours more than limit
 			if (total_Working_Hours + 4 <= MAX_WORKING_HOURS) {
-				//System.out.println("Employee is present Part time");
+				// System.out.println("Employee is present Part time");
 				empHrs = 4;
 				// calculating total working hours
 				total_Working_Hours = total_Working_Hours + empHrs;
@@ -75,14 +89,15 @@ class Employee_Wage_Program {
 		}
 			break;
 		default:
-			//System.out.println("Employee is absent");
+			// System.out.println("Employee is absent");
 			empHrs = 0;
 		}
 	}
 
 	@Override
 	public String toString() {
-		return "Employee_Wage_Program's Company Name is: " + companyName + " and it's wage for the month is: " + wageForMonth;
+		return "Employee_Wage_Program's Company Name is: " + companyName + " and it's wage for the month is: "
+				+ wageForMonth;
 	}
-	
+
 }

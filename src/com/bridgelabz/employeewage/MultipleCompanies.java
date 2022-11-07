@@ -1,14 +1,24 @@
 package com.bridgelabz.employeewage;
 
+import java.util.Scanner;
+
 public class MultipleCompanies {
 	public static void main(String[] args) {
-		System.out.println("Welcome to Employee Wage Program");
-		// company name, wAGE_PER_HOUR, mAX_WORKING_DAYS, mAX_WORKING_HOURS
-		Employee_Wage_Program bridgeLabz = new Employee_Wage_Program("BridgeLabz", 20, 20, 80);
-		bridgeLabz.totalwage();
-		System.out.println(bridgeLabz); //from to string 
-		Employee_Wage_Program tCS = new Employee_Wage_Program("TCS", 10, 10, 60);
-		tCS.totalwage();		
-		System.out.println(tCS);//from to string
+		Scanner sc = new Scanner(System.in);
+
+		Employee_Wage_Program[] ewb;
+
+		System.out.println("Welcome to Employee Wage Computation Program");
+
+		System.out.println("How may company's details would you like to add ?");
+		int num = sc.nextInt();
+
+		ewb = new Employee_Wage_Program[num];
+
+		for (int i = 0; i < num; i++) {
+			ewb[i] = new Employee_Wage_Program();
+			ewb[i].totalwage();
+		}
+		sc.close();
 	}
 }
