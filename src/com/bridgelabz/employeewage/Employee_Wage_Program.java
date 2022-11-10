@@ -3,7 +3,7 @@ package com.bridgelabz.employeewage;
 import java.util.Random;
 import java.util.Scanner;
 
-class Employee_Wage_Program {
+class Employee_Wage_Program implements EmpWage {
 //class variables in EmpWage
 	static final int IS_Full_TIME = 0;
 	static final int IS_PART_TIME = 1;
@@ -18,26 +18,16 @@ class Employee_Wage_Program {
 	int total_Working_Days;// company dependent
 	Scanner sc = new Scanner(System.in);
 
-	public Employee_Wage_Program() {
-		System.out.println("Enter Company Name:");
-		String companyName = sc.nextLine();
+	public Employee_Wage_Program(String companyName, int wAGE_PER_HOUR, int mAX_WORKING_DAYS, int mAX_WORKING_HOURS) {
+		super();
 		this.companyName = companyName;
-		
-		System.out.println("Enter Wage per Hour:");
-		int wagePerHour = sc.nextInt();
-		this.WAGE_PER_HOUR =wagePerHour;
-		
-		System.out.println("Enter Total No. of Working Days in a Month:");
-		int MAX_WORKING_DAYS = sc.nextInt();
-		this.MAX_WORKING_DAYS = MAX_WORKING_DAYS;
-		
-		System.out.println("Enter Total No. of Working Hours in a Month:");
-		int MAX_WORKING_HOURS = sc.nextInt();
-		this.MAX_WORKING_HOURS = MAX_WORKING_HOURS;
+		this.WAGE_PER_HOUR = wAGE_PER_HOUR;
+		this.MAX_WORKING_DAYS = mAX_WORKING_DAYS;
+		this.MAX_WORKING_HOURS = mAX_WORKING_HOURS;
 	}
 
 	// class methods in EmpWage
-	public void totalwage() {
+	public int totalwage() {
 		// checking the total wage for the 20 days
 		for (int i = 1; i <= MAX_WORKING_DAYS; i++) {
 			if (total_Working_Days < MAX_WORKING_DAYS && total_Working_Hours < MAX_WORKING_HOURS) {
@@ -58,6 +48,7 @@ class Employee_Wage_Program {
 		System.out.println("The company name " + companyName + " has Total Wage for the month is: " + wageForMonth
 				+ " Total working days are: " + total_Working_Days + " Total working hours are: "
 				+ total_Working_Hours);
+		return wageForMonth;
 	}
 
 	void empCheck() {
