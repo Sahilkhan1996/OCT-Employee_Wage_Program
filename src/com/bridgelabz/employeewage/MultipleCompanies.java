@@ -1,12 +1,15 @@
 package com.bridgelabz.employeewage;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class MultipleCompanies {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		Map<String, List<Integer>> dailyWageMap=new HashMap<String, List<Integer>>();
 		// Arraylist to save the emp wages
 		List<Integer> wagelist = new ArrayList<>();
 
@@ -33,9 +36,18 @@ public class MultipleCompanies {
 					MAX_WORKING_HOURS);
 			int wage = empObj.totalwage();
 			wagelist.add(wage);
+			dailyWageMap.put(companyName, empObj.dailyWageList);
 		}
-		System.out.println("Array of company wage:");
+		
+		//Array list to add all the monthly wage
+		System.out.println("Array of monthly wages of companies: ");
 		System.out.println(wagelist);
 		sc.close();
+		//Iterating the Map
+		System.out.println("The Daily Wage of the Companies are below: ");
+		for(Map.Entry<String, List<Integer>> dailywage: dailyWageMap.entrySet()) {
+			System.out.println("The Company Name is: "+dailywage.getKey()+" and their daily wage is: "+dailywage.getValue());
+		}
+		
 	}
 }

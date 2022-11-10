@@ -1,5 +1,7 @@
 package com.bridgelabz.employeewage;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -13,10 +15,12 @@ class Employee_Wage_Program implements EmpWage {
 	int MAX_WORKING_HOURS; // 60
 
 	int empHrs;
+	int dailyWage;
 	int wageForMonth;// company dependent
 	int total_Working_Hours;// company dependent
 	int total_Working_Days;// company dependent
 	Scanner sc = new Scanner(System.in);
+	List<Integer> dailyWageList = new ArrayList<Integer>();
 
 	public Employee_Wage_Program(String companyName, int wAGE_PER_HOUR, int mAX_WORKING_DAYS, int mAX_WORKING_HOURS) {
 		super();
@@ -34,7 +38,8 @@ class Employee_Wage_Program implements EmpWage {
 				// checking the employee is present or absent
 				empCheck();
 				// calculating daily wage
-				int dailyWage = WAGE_PER_HOUR * empHrs;
+				dailyWage = WAGE_PER_HOUR * empHrs;
+				dailyWageList.add(dailyWage);
 				// System.out.println("Daily Employee wage: " + dailyWage);
 				// calculating employee working days
 				total_Working_Days++;
