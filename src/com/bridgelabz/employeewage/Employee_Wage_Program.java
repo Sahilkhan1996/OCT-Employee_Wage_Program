@@ -18,8 +18,6 @@ class Employee_Wage_Program implements EmpWage {
 	int total_Working_Days;// company dependent
 	Scanner sc = new Scanner(System.in);
 
-	
-
 	public Employee_Wage_Program(String companyName, int wAGE_PER_HOUR, int mAX_WORKING_DAYS, int mAX_WORKING_HOURS) {
 		super();
 		this.companyName = companyName;
@@ -29,7 +27,7 @@ class Employee_Wage_Program implements EmpWage {
 	}
 
 	// class methods in EmpWage
-	public void totalwage() {
+	public int totalwage() {
 		// checking the total wage for the 20 days
 		for (int i = 1; i <= MAX_WORKING_DAYS; i++) {
 			if (total_Working_Days < MAX_WORKING_DAYS && total_Working_Hours < MAX_WORKING_HOURS) {
@@ -50,6 +48,7 @@ class Employee_Wage_Program implements EmpWage {
 		System.out.println("The company name " + companyName + " has Total Wage for the month is: " + wageForMonth
 				+ " Total working days are: " + total_Working_Days + " Total working hours are: "
 				+ total_Working_Hours);
+		return wageForMonth;
 	}
 
 	void empCheck() {
