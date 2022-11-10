@@ -7,8 +7,8 @@ import java.util.Scanner;
 public class MultipleCompanies {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-
-		List<Integer> wagelist=new ArrayList<>();
+		// Arraylist to save the emp wages
+		List<Integer> wagelist = new ArrayList<>();
 
 		System.out.println("Welcome to Employee Wage Computation Program");
 
@@ -22,15 +22,16 @@ public class MultipleCompanies {
 
 			System.out.println("Enter Wage per Hour:");
 			int wagePerHour = sc.nextInt();
-			
+
 			System.out.println("Enter Total No. of Working Days in a Month:");
 			int MAX_WORKING_DAYS = sc.nextInt();
-			
+
 			System.out.println("Enter Total No. of Working Hours in a Month:");
 			int MAX_WORKING_HOURS = sc.nextInt();
-			
-			Employee_Wage_Program empObj= new Employee_Wage_Program(companyName,wagePerHour,MAX_WORKING_DAYS,MAX_WORKING_HOURS);
-			int wage=empObj.totalwage();
+
+			Employee_Wage_Program empObj = new Employee_Wage_Program(companyName, wagePerHour, MAX_WORKING_DAYS,
+					MAX_WORKING_HOURS);
+			int wage = empObj.totalwage();
 			wagelist.add(wage);
 		}
 		System.out.println("Array of company wage:");
